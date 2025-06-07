@@ -11,8 +11,7 @@ function initCatalog(){
 function loadCategory(category){
     var deviceList;
     var AJAX_req = new XMLHttpRequest();
-    AJAX_req.open( 'POST', 'goods\\' +category+ '.json', false );
-    AJAX_req.setRequestHeader("Content-type", "application/json");
+    AJAX_req.open('GET', 'goods/' + category + '.json', false);
 
     AJAX_req.onreadystatechange = function()
     {
