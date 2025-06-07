@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Market</title>
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
 
-     <link rel="stylesheet" type="text/css" media="screen,projection" href="css/menu.css" />
-
-</head>
-
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="css/menu.css" />
     <link href="css/main.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/content_slider.css" />
     <link rel="stylesheet" type="text/css" href="css/goods.css" />
@@ -149,6 +147,9 @@
             </div>
         </div>
     </div>
+    <div class="page" id="device-page" style="display: none">
+        <div id="device-wrapper"></div>
+    </div>
 
         </div>
 
@@ -190,6 +191,36 @@
     </div>
 </div>
 </footer>
+
+<script type="text/template" id="device-short-template">
+    <div class="device-preview">
+        <div class="image-preview">
+            <img src="<%= device.itemThumbImgUrl %>" alt="<%= device.itemTitle %>" />
+        </div>
+        <div class="description-preview">
+            <p><%= device.itemTitle %></p>
+        </div>
+        <div class="preview-buttons">
+            <ul>
+                <li><a href="#!/<%= device.category %>/i<%= device.index %>">Подробнее</a></li>
+                <li><a href="#" onclick="cart.addItem('<%= device.category %>', <%= device.index %>)">Купить</a></li>
+            </ul>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="tech-info-table-template">
+    <table id="tech-info-table">
+        <tbody>
+        <% _.each(device.techInfo, function(info, key){ if(key !== 'thumbs'){ %>
+            <tr>
+                <td><%= info.title || key %></td>
+                <td><%= info.value || info %></td>
+            </tr>
+        <% }}); %>
+        </tbody>
+    </table>
+</script>
 
 
 
